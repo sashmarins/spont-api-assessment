@@ -29,6 +29,9 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
     @blog.update(blog_params)
     @blog.save!
+    if @blog.save!
+      render json: @blog
+    end
   end
   # categories again
 
