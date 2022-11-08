@@ -25,11 +25,24 @@ end
     blogtitle = Faker::Verb.base
     text = Faker::Lorem.paragraph
     userid = rand(1..25)
-    catid = rand(1..12)
     blog = Blog.create!(
         title: blogtitle,
         content: text,
         user_id: userid,
-        category_id: catid
     )
 end
+
+# Create Join Table
+Blog.all.each do |blog|
+    uniqueidtracker = []
+    rand(1..10).times do
+        randcatid = rand(1..12)
+        if (uniqueidtracker.include?(randcatid)) == false
+            uniqueidtracker.push(randcatid)
+            cats = Category.where(id: randcatid)
+            blog.categories << cats
+        end
+    end
+end
+
+
