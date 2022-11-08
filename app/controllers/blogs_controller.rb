@@ -5,17 +5,21 @@ class BlogsController < ApplicationController
   def index
     @blogs = Blog.all
   end
+  # get endpoints also needs to show categories
 
   # GET /blogs/1 or /blogs/1.json
   def show
     @blog = Blog.find(params[:id])
   end
 
+  # GET by category
+
   # POST /blogs or /blogs.json
   def create
     @blog = Blog.new(blog_params)
     @blog.save!
   end
+  # needs to have category availability s
 
   # PATCH/PUT /blogs/1 or /blogs/1.json
   def update
@@ -23,6 +27,7 @@ class BlogsController < ApplicationController
     @blog.update(blog_params)
     @blog.save!
   end
+  # categories again
 
   # DELETE /blogs/1 or /blogs/1.json
   def destroy
