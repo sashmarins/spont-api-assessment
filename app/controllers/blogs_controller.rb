@@ -18,6 +18,9 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     @blog.save!
+    if @blog.save!
+      render json: @blog
+    end
   end
   # needs to have category availability s
 
