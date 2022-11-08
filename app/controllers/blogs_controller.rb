@@ -11,15 +11,6 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
   end
 
-  # GET /blogs/new
-  def new
-    @blog = Blog.new
-  end
-
-  # GET /blogs/1/edit
-  def edit
-  end
-
   # POST /blogs or /blogs.json
   def create
     @blog = Blog.new(blog_params)
